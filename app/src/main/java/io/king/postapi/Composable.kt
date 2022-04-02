@@ -1,6 +1,5 @@
 package io.king.postapi
 
-import android.content.Context
 import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
@@ -28,15 +27,9 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.ViewModelProvider
-
-var names: String =""
-var statuses: String =""
-var mails: String =""
-var genders: String =""
 
 @Composable
-fun Forms() {
+fun Forms(viewModel: MainActivityViewModel) {
 
     val context = LocalContext.current
     val focusManager = LocalFocusManager.current
@@ -44,13 +37,9 @@ fun Forms() {
 
 
     var fullName by rememberSaveable { mutableStateOf("") }
-    names = fullName
     var status by rememberSaveable { mutableStateOf("") }
-    statuses = status
     var email by rememberSaveable { mutableStateOf("") }
-    mails = email
     var gender by rememberSaveable { mutableStateOf("") }
-    genders = gender
 
     var validateFullName by rememberSaveable {mutableStateOf(true)}
     var validateStatus by rememberSaveable {mutableStateOf(true)}
@@ -66,7 +55,7 @@ fun Forms() {
 
         validateFullName = fullName.isNotBlank()
         validateStatus = status.isNotBlank()
-        validateEmail = Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        validateEmail = email.isNotBlank()
         validateGender = gender.isNotBlank()
 
 
@@ -82,7 +71,9 @@ fun Forms() {
         if (validateData(fullName,status,email,gender)){
             // registration Logic
 
-            Log.d(MainActivity::class.java.simpleName, "FullName: $fullName, Status: $status, Email: $email, Gender: $gender")
+            Log.d("Register Detail", "FullName: $fullName, Status: $status, Email: $email, Gender: $gender")
+            val user = User(id = "", fullName, email, status, gender)
+            viewModel.createNewUser(user)
         }else {
             Toast.makeText(context, "Please review fields", Toast.LENGTH_SHORT).show()
         }
@@ -170,7 +161,8 @@ fun Forms() {
         Button(
             onClick = {
                 register(fullName, email, gender, status)
-                createUser()
+                Log.d("userdetail", fullName)
+
             },
             modifier = Modifier
                 .padding(20.dp)
@@ -182,8 +174,4 @@ fun Forms() {
             )
         }
     }
-}
-
-private fun createUser() {
-    val user = User(id = "", names, mails, statuses, genders)
 }
