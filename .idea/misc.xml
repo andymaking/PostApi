@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/compose-model-1648875125419.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/alternate_email.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/error.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/gender.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/perm_identity.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/switched.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/visibility.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/visibility_off.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
