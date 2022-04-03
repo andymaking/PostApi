@@ -8,10 +8,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 
 class MainActivityViewModel: ViewModel() {
-    lateinit var createNewUserLiveData: MutableLiveData<UserResponse?>
-    init {
-        createNewUserLiveData = MutableLiveData()
-    }
+    private var createNewUserLiveData: MutableLiveData<UserResponse?> = MutableLiveData()
 
     fun getCreateNewUserObserver(): MutableLiveData<UserResponse?> {
         return createNewUserLiveData
